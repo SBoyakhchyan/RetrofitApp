@@ -10,15 +10,14 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofitapp.R
 import com.example.retrofitapp.adapter.DisplayInfoAdapter
+import com.example.retrofitapp.adapter.SwipeToDelete
 import com.example.retrofitapp.databinding.FragmentDisplayDataBinding
 import com.example.retrofitapp.model.ArticelInfoData
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
 
 class DisplayDataFragment : Fragment() {
     private lateinit var binding: FragmentDisplayDataBinding
@@ -90,6 +89,8 @@ class DisplayDataFragment : Fragment() {
         adapterInfo = DisplayInfoAdapter(infoList)
         recyclerViewInfo.adapter = adapterInfo
         recyclerViewInfo.layoutManager = LinearLayoutManager(requireContext())
+        var itemTouchHelper = ItemTouchHelper(SwipeToDelete(adapterInfo))
+        itemTouchHelper.attachToRecyclerView(recyclerViewInfo)
     }
 
     private fun setRecyclerViewDivider() {

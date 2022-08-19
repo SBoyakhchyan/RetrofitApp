@@ -1,8 +1,7 @@
 package com.example.retrofitapp.api
 
 import com.example.retrofitapp.model.ResponseResult
-import com.example.retrofitapp.resources.Constants.Companion.API_KEY
-import retrofit2.Call
+import com.example.retrofitapp.utils.Constants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
