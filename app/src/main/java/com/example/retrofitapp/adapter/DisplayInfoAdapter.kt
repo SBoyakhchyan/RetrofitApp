@@ -55,7 +55,7 @@ class DisplayInfoAdapter(
 
     fun setList(listInfo: ArrayList<ArticelInfoData>){
         this.listInfo = listInfo
-
+        notifyDataSetChanged()
     }
 
 }

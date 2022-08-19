@@ -16,9 +16,9 @@ import com.example.retrofitapp.R
 import com.example.retrofitapp.adapter.DisplayInfoAdapter
 import com.example.retrofitapp.databinding.FragmentDisplayDataBinding
 import com.example.retrofitapp.model.ArticelInfoData
-import com.example.retrofitapp.model.MainViewModel
-import kotlinx.coroutines.*
-import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
 
 class DisplayDataFragment : Fragment() {
     private lateinit var binding: FragmentDisplayDataBinding
@@ -40,7 +40,7 @@ class DisplayDataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        GlobalScope.async(Dispatchers.Main) { setData() }
+        setData()
         initRecyclerView()
         observeLiveData()
         setRecyclerViewDivider()
@@ -66,12 +66,14 @@ class DisplayDataFragment : Fragment() {
 //    }
     private fun observeLiveData() {
         viewModel.articlesLiveData.observe(viewLifecycleOwner) {
+            Log.d("tttt", "articlesLiveData")
             if (it != null) {
-                infoList = it
-                Log.d("tttt", "success1")
+                adapterInfo.setList(it)
+                Log.d("tttt", it.toString())
             }
         }
         viewModel.errorLiveData.observe(viewLifecycleOwner) {
+            Log.d("tttt", "errorLiveData")
             if (it != null) {
                 adapterInfo.apply {
                     setList(ArrayList())
@@ -101,11 +103,7 @@ class DisplayDataFragment : Fragment() {
         recyclerViewInfo.addItemDecoration(divider)
     }
 
-    private suspend fun setData() {
-        withContext(Dispatchers.IO) {
-            viewModel.getArticles("techcrunch")
-            infoList = viewModel.articlesLiveData.value ?: return@withContext
-            Log.d("ttttt", "00000 ${infoList.toString()}")
-        }
+    private fun setData() {
+        viewModel.getArticles("techcrunch")
     }
 }
