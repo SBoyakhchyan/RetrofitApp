@@ -10,7 +10,6 @@ import com.bumptech.glide.Glide
 import com.example.retrofitapp.R
 import com.example.retrofitapp.databinding.ItemDisplayDataBinding
 import com.example.retrofitapp.model.ArticelInfoData
-import com.example.retrofitapp.model.DisplayInfoModel
 
 class DisplayInfoAdapter(
     private var listInfo: ArrayList<ArticelInfoData>
@@ -51,9 +50,14 @@ class DisplayInfoAdapter(
         }
     }
 
+    fun deleteItem(pos: Int) {
+        listInfo.removeAt(pos)
+        notifyItemRemoved(pos)
+    }
+
     override fun getItemCount() = listInfo.size
 
-    fun setList(listInfo: ArrayList<ArticelInfoData>){
+    fun setList(listInfo: ArrayList<ArticelInfoData>) {
         this.listInfo = listInfo
         notifyDataSetChanged()
     }
