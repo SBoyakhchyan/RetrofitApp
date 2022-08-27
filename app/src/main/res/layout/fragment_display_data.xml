@@ -7,6 +7,15 @@
     android:background="@color/teal_700"
     tools:context=".fragments.DisplayDataFragment">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_insertData"
@@ -19,5 +28,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_display_data"
         tools:itemCount="3" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
