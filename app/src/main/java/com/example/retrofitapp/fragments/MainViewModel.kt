@@ -10,8 +10,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-class MainViewModel : ViewModel() {
-    private val repo = MainRepository()
+class MainViewModel(var repo: MainRepository) : ViewModel() {
 
     private val _articlesStateFlow = MutableStateFlow<ArrayList<ArticelInfoData>?>(null)
     val articlesStateFlow = _articlesStateFlow.asStateFlow()
