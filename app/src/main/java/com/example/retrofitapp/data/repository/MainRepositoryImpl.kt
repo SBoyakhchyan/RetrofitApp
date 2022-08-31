@@ -1,14 +1,15 @@
-package com.example.retrofitapp.fragments
+package com.example.retrofitapp.data.repository
 
-import com.example.retrofitapp.api.ArticleInfoService
-import com.example.retrofitapp.model.ActionResult
-import com.example.retrofitapp.model.ResponseResult
+import com.example.retrofitapp.data.api.ArticleInfoService
+import com.example.retrofitapp.domain.repository.MainRepository
+import com.example.retrofitapp.presentation.model.ActionResult
+import com.example.retrofitapp.presentation.model.ResponseResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class MainRepository(var apiService: ArticleInfoService) {
+class MainRepositoryImpl(var apiService: ArticleInfoService) : MainRepository {
 
-    suspend fun requestData(source: String): ActionResult<ResponseResult> {
+    override suspend fun requestData(source: String): ActionResult<ResponseResult> {
         return withContext(Dispatchers.IO) {
             val result = apiService.getArticles(source)
             when (result.code()) {

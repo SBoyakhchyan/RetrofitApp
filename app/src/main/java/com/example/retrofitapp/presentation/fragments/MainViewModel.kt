@@ -1,16 +1,17 @@
-package com.example.retrofitapp.fragments
+package com.example.retrofitapp.presentation.fragments
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.retrofitapp.model.ActionResult.ERROR
-import com.example.retrofitapp.model.ActionResult.SUCCESS
-import com.example.retrofitapp.model.ArticelInfoData
+import com.example.retrofitapp.domain.interactor.RequestDataUseCase
+import com.example.retrofitapp.presentation.model.ActionResult.ERROR
+import com.example.retrofitapp.presentation.model.ActionResult.SUCCESS
+import com.example.retrofitapp.presentation.model.ArticelInfoData
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-class MainViewModel(var repo: MainRepository) : ViewModel() {
+class MainViewModel(var useCase: RequestDataUseCase) : ViewModel() {
 
     private val _articlesStateFlow = MutableStateFlow<ArrayList<ArticelInfoData>?>(null)
     val articlesStateFlow = _articlesStateFlow.asStateFlow()
@@ -26,7 +27,7 @@ class MainViewModel(var repo: MainRepository) : ViewModel() {
         viewModelScope.launch {
             _showProgressStateFlow.emit(true)
             delay(5000)
-            val response = async { return@async repo.requestData(source) }.await()
+            val response = async { return@async useCase.invoke(source) }.await()
             when (response) {
                 is SUCCESS -> {
                     _articlesStateFlow.emit(response.data?.articles)

@@ -1,6 +1,6 @@
-package com.example.retrofitapp.di
+package com.example.retrofitapp.presentation.di
 
-import com.example.retrofitapp.fragments.MainViewModel
+import com.example.retrofitapp.presentation.fragments.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

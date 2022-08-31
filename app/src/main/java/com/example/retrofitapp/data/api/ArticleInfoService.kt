@@ -1,7 +1,7 @@
-package com.example.retrofitapp.api
+package com.example.retrofitapp.data.api
 
-import com.example.retrofitapp.model.ResponseResult
-import com.example.retrofitapp.utils.Constants.Companion.API_KEY
+import com.example.retrofitapp.presentation.model.ResponseResult
+import com.example.retrofitapp.presentation.utils.Constants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

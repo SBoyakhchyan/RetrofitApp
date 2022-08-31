@@ -1,4 +1,4 @@
-package com.example.retrofitapp
+package com.example.retrofitapp.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

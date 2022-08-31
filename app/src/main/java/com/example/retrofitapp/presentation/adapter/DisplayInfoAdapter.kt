@@ -1,4 +1,4 @@
-package com.example.retrofitapp.adapter
+package com.example.retrofitapp.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.retrofitapp.R
 import com.example.retrofitapp.databinding.ItemDisplayDataBinding
-import com.example.retrofitapp.model.ArticelInfoData
+import com.example.retrofitapp.presentation.model.ArticelInfoData
 
 class DisplayInfoAdapter(
     private var listInfo: ArrayList<ArticelInfoData>

@@ -1,10 +1,9 @@
-package com.example.retrofitapp.di
+package com.example.retrofitapp.data.di
 
-import com.example.retrofitapp.api.ArticleInfoService
-import com.example.retrofitapp.utils.Constants.Companion.BASE_URL
+import com.example.retrofitapp.data.api.ArticleInfoService
+import com.example.retrofitapp.presentation.utils.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.core.scope.get
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

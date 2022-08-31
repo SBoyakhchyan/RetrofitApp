@@ -1,4 +1,4 @@
-package com.example.retrofitapp.model
+package com.example.retrofitapp.presentation.model
 
 class DisplayInfoModel(
     var titleModel: String,

@@ -1,4 +1,4 @@
-package com.example.retrofitapp.utils
+package com.example.retrofitapp.presentation.utils
 
 class Constants {
     companion object {

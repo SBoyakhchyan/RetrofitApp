@@ -1,4 +1,4 @@
-package com.example.retrofitapp.fragments
+package com.example.retrofitapp.presentation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,10 +14,10 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofitapp.R
-import com.example.retrofitapp.adapter.DisplayInfoAdapter
-import com.example.retrofitapp.adapter.SwipeToDelete
+import com.example.retrofitapp.presentation.adapter.DisplayInfoAdapter
+import com.example.retrofitapp.presentation.adapter.SwipeToDelete
 import com.example.retrofitapp.databinding.FragmentDisplayDataBinding
-import com.example.retrofitapp.model.ArticelInfoData
+import com.example.retrofitapp.presentation.model.ArticelInfoData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.example.retrofitapp.adapter
+package com.example.retrofitapp.presentation.adapter
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
