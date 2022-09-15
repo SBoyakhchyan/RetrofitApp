@@ -17,7 +17,7 @@ class MainViewModel(var useCase: RequestDataUseCase) : ViewModel() {
     val articlesStateFlow = _articlesStateFlow.asStateFlow()
 
     private val _errorStateFlow = MutableSharedFlow<String>()
-    val errorStateFlow : SharedFlow<String> = _errorStateFlow.asSharedFlow()
+    val errorStateFlow: SharedFlow<String> = _errorStateFlow.asSharedFlow()
 
     private val _showProgressStateFlow = MutableStateFlow(false)
     val showProgressStateFlow = _showProgressStateFlow.asStateFlow()

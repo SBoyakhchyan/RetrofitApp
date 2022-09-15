@@ -24,10 +24,14 @@ class DisplayInfoAdapter(
 
 
         init {
-            title = itemView.findViewById(R.id.tv_text_title)
-            author = itemView.findViewById(R.id.tv_text_author)
-            description = itemView.findViewById(R.id.tv_text_description)
-            articleImage = itemView.findViewById(R.id.iv_articleImage)
+            title = bindingDisplayInfo.tvTextTitle
+            author = bindingDisplayInfo.tvTextAuthor
+            description = bindingDisplayInfo.tvTextDescription
+            articleImage = bindingDisplayInfo.ivArticleImage
+//            title = itemView.findViewById(R.id.tv_text_title)
+//            author = itemView.findViewById(R.id.tv_text_author)
+//            description = itemView.findViewById(R.id.tv_text_description)
+//            articleImage = itemView.findViewById(R.id.iv_articleImage)
         }
 
     }
